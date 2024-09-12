@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://blog.paulownia.top/2024/09/12/2024%E8%A5%BF%E8%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA%E8%81%8C%E4%B8%9A%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%AA%E4%BA%BA%E8%B5%9BWP/image-20240806180959763.png">
 <meta property="og:image" content="https://blog.paulownia.top/2024/09/12/2024%E8%A5%BF%E8%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA%E8%81%8C%E4%B8%9A%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%AA%E4%BA%BA%E8%B5%9BWP/image-20240806181114135.png">
 <meta property="article:published_time" content="2024-09-12T02:24:27.000Z">
-<meta property="article:modified_time" content="2024-09-12T14:03:51.465Z">
+<meta property="article:modified_time" content="2024-09-12T15:54:39.097Z">
 <meta property="article:author" content="Paulownia">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.paulownia.top/2024/09/12/2024%E8%A5%BF%E8%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA%E8%81%8C%E4%B8%9A%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%AA%E4%BA%BA%E8%B5%9BWP/image-20240912103931271.png">
@@ -207,7 +207,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-09-12 10:24:27 / Modified: 22:03:51" itemprop="dateCreated datePublished" datetime="2024-09-12T10:24:27+08:00">2024-09-12</time>
+              <time title="Created: 2024-09-12 10:24:27 / Modified: 23:54:39" itemprop="dateCreated datePublished" datetime="2024-09-12T10:24:27+08:00">2024-09-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,9 +252,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>距离上次参加自治区比赛已经是三年前了，这次的比赛看出，大家越来越重视竞赛成绩了，手段也是越来越多了。比赛的时候，最简单的pwn题，竟然因为看错了偏移量，一直没有pwn成功，gdb调试啥的，所有的全都忘得一干二净了。果然从事安全工作的人，大多数工作内容都得是管理，还是得抽空自己搞搞“科研”。</p>
-<p>本次比赛分了三场个人赛，理论、CTF以及CFS，CTF的整体难度其实还是简单的，但是因为pwn和misc的两道题目比赛的时候没有做出来，导致比赛的排名整体一般，最后虽然CFS拿到了第一，但是综合成绩也只有三等奖。</p>
-<p>官方没有给WP，打算把几道稍微有一点难度的题目的WP分享一下。</p>
+        <p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;距离上次参加自治区比赛已经是三年前了，这次的比赛看出，大家越来越重视竞赛成绩了，手段也是越来越多了。比赛的时候，最简单的pwn题，竟然因为看错了偏移量，一直没有pwn成功，gdb调试啥的，所有的全都忘得一干二净了。果然从事安全工作的人，大多数工作内容都得是管理，还是得抽空自己搞搞“科研”。</p>
+<p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;本次比赛分了三场个人赛，理论、CTF以及CFS，CTF的整体难度其实还是简单的，但是因为pwn和misc的两道题目比赛的时候没有做出来，导致比赛的排名整体一般，最后虽然CFS拿到了第一，但是综合成绩也只有三等奖。</p>
+<p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;官方没有给WP，打算把几道稍微有一点难度的题目的WP分享一下。</p>
 <h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="SMB"><a href="#SMB" class="headerlink" title="SMB"></a>SMB</h3><p>打开SMB，可以看到一个flag.zip压缩包的文件</p>
 <p><img src="image-20240912103931271.png" alt="image-20240912103931271"></p>
 <p>导出SMB对象后，发现flag.zip需要密码才能打开，试了伪加密和8位以内数字爆破无果。</p>

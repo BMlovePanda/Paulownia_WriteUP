@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/image-20240820135730510.png">
 <meta property="og:image" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/image-20240820140856374.png">
 <meta property="article:published_time" content="2024-09-12T14:43:15.000Z">
-<meta property="article:modified_time" content="2024-09-12T15:02:24.625Z">
+<meta property="article:modified_time" content="2024-09-12T15:55:04.571Z">
 <meta property="article:author" content="Paulownia">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="2024">
@@ -202,7 +202,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-09-12 22:43:15 / Modified: 23:02:24" itemprop="dateCreated datePublished" datetime="2024-09-12T22:43:15+08:00">2024-09-12</time>
+              <time title="Created: 2024-09-12 22:43:15 / Modified: 23:55:04" itemprop="dateCreated datePublished" datetime="2024-09-12T22:43:15+08:00">2024-09-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -247,11 +247,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>书接上回，第一天的预赛如果大家还算理智和克制，那第二天的决赛现场的选手可能就跟打了鸡血一样，比赛分了企业组、学生组和政府组，每个组在最后半小时都是风云变幻，赛后甚至还有人打探到某组的第一名是花钱买的，去年相同级别的一个比赛花了2w，今年花了1w（难道市场化了？所以价格下跌了。。。）</p>
+        <p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;书接上回，第一天的预赛如果大家还算理智和克制，那第二天的决赛现场的选手可能就跟打了鸡血一样，比赛分了企业组、学生组和政府组，每个组在最后半小时都是风云变幻，赛后甚至还有人打探到某组的第一名是花钱买的，去年相同级别的一个比赛花了2w，今年花了1w（难道市场化了？所以价格下跌了。。。）</p>
 <p>企业组的前几名，复杂的附件题目哐哐妙答案，最简单的web和pwn题没人做，就不要太明显。</p>
-<p>虽说各级别CTF比赛的PY交易从来都不罕见，但是如此混乱的赛场记录真是第一次见。</p>
-<p>比赛的时候有一道复杂一点的misc，到比赛结束后和队友交流的时候才发现，其实比赛的时候已经做到最后一步了，盲水印隐写已经拿到结果了，但是还是因为属于练习，竟然连文件路径都搞错了，愣是没找到输出的盲水印结果。。。如果有这道题目的分数，可能起码还能混到一个奖金。</p>
-<p>比赛结束后在赛场附近闯了个红灯，痛失6分+200大洋，没拿到奖金还搭进去200块，真悲摧。    </p>
+<p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;虽说各级别CTF比赛的PY交易从来都不罕见，但是如此混乱的赛场记录真是第一次见。</p>
+<p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;比赛的时候有一道复杂一点的misc，到比赛结束后和队友交流的时候才发现，其实比赛的时候已经做到最后一步了，盲水印隐写已经拿到结果了，但是还是因为属于练习，竟然连文件路径都搞错了，愣是没找到输出的盲水印结果。。。如果有这道题目的分数，可能起码还能混到一个奖金。</p>
+<p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;比赛结束后在赛场附近闯了个红灯，痛失6分+200大洋，没拿到奖金还搭进去200块，真悲摧。    </p>
 <h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="hide-flag"><a href="#hide-flag" class="headerlink" title="hide flag"></a>hide flag</h2><h2 id="布达拉宫"><a href="#布达拉宫" class="headerlink" title="布达拉宫"></a>布达拉宫</h2><h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="qiandao"><a href="#qiandao" class="headerlink" title="qiandao"></a>qiandao</h2><h2 id="ezjava"><a href="#ezjava" class="headerlink" title="ezjava"></a>ezjava</h2><h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="EasyRSA"><a href="#EasyRSA" class="headerlink" title="EasyRSA"></a>EasyRSA</h2><h1 id="Revere"><a href="#Revere" class="headerlink" title="Revere"></a>Revere</h1><h2 id="confidential"><a href="#confidential" class="headerlink" title="confidential"></a>confidential</h2><h2 id="ezmaze"><a href="#ezmaze" class="headerlink" title="ezmaze"></a>ezmaze</h2><p>反编译后，查看字符串，发现了迷宫</p>
 <p><img src="image-20240820135431639.png" alt="image-20240820135431639"></p>
 <p>根据段数据内容，找到了对应的函数</p>

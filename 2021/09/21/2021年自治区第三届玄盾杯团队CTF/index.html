@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://blog.paulownia.top/2021/09/21/2021%E5%B9%B4%E8%87%AA%E6%B2%BB%E5%8C%BA%E7%AC%AC%E4%B8%89%E5%B1%8A%E7%8E%84%E7%9B%BE%E6%9D%AF%E5%9B%A2%E9%98%9FCTF/202202151609705.png">
 <meta property="og:image" content="https://blog.paulownia.top/2021/09/21/2021%E5%B9%B4%E8%87%AA%E6%B2%BB%E5%8C%BA%E7%AC%AC%E4%B8%89%E5%B1%8A%E7%8E%84%E7%9B%BE%E6%9D%AF%E5%9B%A2%E9%98%9FCTF/202202151609706.png">
 <meta property="article:published_time" content="2021-09-21T09:46:11.000Z">
-<meta property="article:modified_time" content="2024-09-12T14:03:51.435Z">
+<meta property="article:modified_time" content="2024-09-12T15:54:07.233Z">
 <meta property="article:author" content="Paulownia">
 <meta property="article:tag" content="WriteUp">
 <meta property="article:tag" content="自治区">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-09-12 22:03:51" itemprop="dateModified" datetime="2024-09-12T22:03:51+08:00">2024-09-12</time>
+                <time title="Modified: 2024-09-12 23:54:07" itemprop="dateModified" datetime="2024-09-12T23:54:07+08:00">2024-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,7 +277,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><blockquote>
+        <p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;21年参加的自治区的第一场比赛，整场比赛都是团队赛，团队CTF加两场AWD，在第一场CTF小输不多后，在第二场AWD迎头赶上，第三场AWD继续小输一些。就在我们欢喜的等待玄盾杯的第一个冠军要到手了之后，惊奇的发现裁判的最终成绩，我们屈居第二，并且在我们问成绩的时候，裁判笑着说继续努力。。。</p>
+<p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;然而在每场比赛结束后不截图积分榜的CTFer不是好厨子，我们每场比赛的结果都截了图，再即使被扣掉第二场多攻击了一轮的分之后，我们依然是第一名，在主办方和我们的注视下，裁判无奈的宣布我们是第一。。。</p>
+<p>&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;本场比赛的最宝贵经验就是，在比赛结束时一定要截图，另外要熟练掌握四位数以内的加减法。</p>
+<h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><blockquote>
 <p>n&#x3D; 703739435902178622788120837062252491867056043804038443493374414926110815100242619<br>e&#x3D; 59159<br>c&#x3D; 449590107303744450592771521828486744432324538211104865947743276969382998354463377<br>m&#x3D;???</p>
 </blockquote>
 <p>比赛的时候，用yafu是分解除了三个因数，但是写wp的时候，yafu只能分出来2个。。。然后发现可以用sage进行分解，不过时间有点久，得四五分钟的样子</p>
