@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="8AOkjVl4_iukPinKmdlm-v7nhMS1Bbq4njJrJzT7DNg">
+  <meta name="baidu-site-verification" content="codeva-8CKVzgdicx">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.paulownia.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2024年西藏自治区玄盾珠峰网络安全竞赛决赛wp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024玄盾珠峰决赛Writeup">
+<meta property="og:url" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/index.html">
+<meta property="og:site_name" content="红烧胖大海的博客">
+<meta property="og:description" content="2024年西藏自治区玄盾珠峰网络安全竞赛决赛wp">
+<meta property="og:locale">
+<meta property="og:image" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/image-20240820135431639.png">
+<meta property="og:image" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/image-20240820135519122.png">
+<meta property="og:image" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/image-20240820135730510.png">
+<meta property="og:image" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/image-20240820140856374.png">
+<meta property="article:published_time" content="2024-09-12T14:43:15.000Z">
+<meta property="article:modified_time" content="2024-09-12T15:01:36.603Z">
+<meta property="article:author" content="Paulownia">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="西藏">
+<meta property="article:tag" content="玄盾珠峰">
+<meta property="article:tag" content="2024">
+<meta property="article:tag" content="Writeup">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/image-20240820135431639.png">
+
+<link rel="canonical" href="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>2024玄盾珠峰决赛Writeup | 红烧胖大海的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">红烧胖大海的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Paulownia">
+      <meta itemprop="description" content="记录知识,分享内容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="红烧胖大海的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2024玄盾珠峰决赛Writeup
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-09-12 22:43:15 / Modified: 23:01:36" itemprop="dateCreated datePublished" datetime="2024-09-12T22:43:15+08:00">2024-09-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF-s-WriteUp/" itemprop="url" rel="index"><span itemprop="name">CTF's WriteUp</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/" class="post-meta-item leancloud_visitors" data-flag-title="2024玄盾珠峰决赛Writeup" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">2024年西藏自治区玄盾珠峰网络安全竞赛决赛wp</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>书接上回，第一天的预赛如果大家还算理智和克制，那第二天的决赛现场的选手可能就跟打了鸡血一样，比赛分了企业组、学生组和政府组，每个组在最后半小时都是风云变幻，赛后甚至还有人打探到某组的第一名是花钱买的，去年相同级别的一个比赛花了2w，今年花了1w（难道市场化了？所以价格下跌了。。。）</p>
+<p>企业组的前几名，复杂的附件题目哐哐妙答案，最简单的web和pwn题没人做，就不要太明显。</p>
+<p>虽说各级别CTF比赛的PY交易从来都不罕见，但是如此混乱的赛场记录真是第一次见。</p>
+<p>比赛的时候有一道复杂一点的misc，到比赛结束后和队友交流的时候才发现，其实比赛的时候已经做到最后一步了，盲水印隐写已经拿到结果了，但是还是因为属于练习，竟然连文件路径都搞错了，愣是没找到输出的盲水印结果。。。如果有这道题目的分数，可能起码还能混到一个奖金。</p>
+<p>比赛结束后在赛场附近闯了个红灯，痛失6分+200大洋，没拿到奖金还搭进去200块，真悲摧。</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="hide-flag"><a href="#hide-flag" class="headerlink" title="hide flag"></a>hide flag</h2><h2 id="布达拉宫"><a href="#布达拉宫" class="headerlink" title="布达拉宫"></a>布达拉宫</h2><h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="qiandao"><a href="#qiandao" class="headerlink" title="qiandao"></a>qiandao</h2><h2 id="ezjava"><a href="#ezjava" class="headerlink" title="ezjava"></a>ezjava</h2><h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="EasyRSA"><a href="#EasyRSA" class="headerlink" title="EasyRSA"></a>EasyRSA</h2><h1 id="Revere"><a href="#Revere" class="headerlink" title="Revere"></a>Revere</h1><h2 id="confidential"><a href="#confidential" class="headerlink" title="confidential"></a>confidential</h2><h2 id="ezmaze"><a href="#ezmaze" class="headerlink" title="ezmaze"></a>ezmaze</h2><p>反编译后，查看字符串，发现了迷宫</p>
+<p><img src="image-20240820135431639.png" alt="image-20240820135431639"></p>
+<p>根据段数据内容，找到了对应的函数</p>
+<p><img src="image-20240820135519122.png" alt="image-20240820135519122"></p>
+<p>根据函数内容，确定了迷宫的入口出口，以及操作的方式，wsad分别代表上下左右，所以输出的路径就是代表上下左右方向的字符串</p>
+<p><img src="image-20240820135730510.png" alt="image-20240820135730510"></p>
+<p>确定了迷宫的情况之后，只需要找到路径就可以了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> md5</span><br><span class="line">maze = [[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="string">&#x27;@&#x27;</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">dirs = [(<span class="number">0</span>,<span class="number">1</span>),(<span class="number">1</span>,<span class="number">0</span>),(<span class="number">0</span>,-<span class="number">1</span>),(-<span class="number">1</span>,<span class="number">0</span>)]</span><br><span class="line">contrl = [<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;s&#x27;</span>,<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;w&#x27;</span>]</span><br><span class="line">maze_path = []</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">trans_dirs</span>(<span class="params">direction</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    将移动坐标转换成对应的方向键</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> contrl[dirs.index(direction)]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">passable</span>(<span class="params">maze,pos</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    判断当前所在位置是否可以通过，加try是为了判断当前位置在迷宫范围内</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> maze[pos[<span class="number">0</span>]][pos[<span class="number">1</span>]] == <span class="number">1</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mark</span>(<span class="params">maze,pos</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    标记走过的位置</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    maze[pos[<span class="number">0</span>]][pos[<span class="number">1</span>]] = <span class="number">2</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">direct_control</span>(<span class="params">maze,start_pos,end_pos</span>):</span><br><span class="line">    </span><br><span class="line">    mark(maze,start_pos)</span><br><span class="line">    <span class="comment">#如果起始位置和终止位置一致，则表示已到达终点</span></span><br><span class="line">    <span class="keyword">if</span> start_pos==end_pos:</span><br><span class="line">        maze_path.append(start_pos)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="comment">#根据四个方向移动位置</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        next_pos = start_pos[<span class="number">0</span>]+dirs[i][<span class="number">0</span>],start_pos[<span class="number">1</span>]+dirs[i][<span class="number">1</span>]</span><br><span class="line">        <span class="comment">#判断当前位置通过性</span></span><br><span class="line">        <span class="keyword">if</span> passable(maze,next_pos):</span><br><span class="line">            <span class="comment">#循环调用</span></span><br><span class="line">            <span class="keyword">if</span> direct_control(maze,next_pos,end_pos):</span><br><span class="line">                <span class="comment">#print(next_pos)</span></span><br><span class="line">                maze_path.append(start_pos)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">view_path</span>(<span class="params">maze,path</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    绘制迷宫和路径</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i,p <span class="keyword">in</span> <span class="built_in">enumerate</span>(path):</span><br><span class="line">        <span class="keyword">if</span> i==<span class="number">0</span>:<span class="comment">#路径出口</span></span><br><span class="line">            maze[p[<span class="number">0</span>]][p[<span class="number">1</span>]]=<span class="string">&#x27;E&#x27;</span></span><br><span class="line">            <span class="built_in">print</span>(p[<span class="number">0</span>], p[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">elif</span> i==<span class="built_in">len</span>(path)-<span class="number">1</span>:<span class="comment">#路径入口</span></span><br><span class="line">            maze[p[<span class="number">0</span>]][p[<span class="number">1</span>]]=<span class="string">&#x27;S&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:<span class="comment">#路径其他位置</span></span><br><span class="line">            maze[p[<span class="number">0</span>]][p[<span class="number">1</span>]]=<span class="number">3</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> r <span class="keyword">in</span> maze:</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> r:</span><br><span class="line">            <span class="keyword">if</span> c==<span class="number">3</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;\033[0;31m&quot;</span>+<span class="string">&quot;* &quot;</span>+<span class="string">&quot;\033[0m&quot;</span>,end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> c==<span class="string">&#x27;S&#x27;</span> <span class="keyword">or</span> c==<span class="string">&#x27;E&#x27;</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;\033[0;34m&quot;</span>+c+<span class="string">&quot; &quot;</span>+<span class="string">&quot;\033[0m&quot;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> c==<span class="number">2</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;\033[0;32m&quot;</span>+<span class="string">&quot;# &quot;</span>+<span class="string">&quot;\033[0m&quot;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> c==<span class="number">0</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;\033[0;40m&quot;</span>+<span class="string">&quot;  &quot;</span>+<span class="string">&quot;\033[0m&quot;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot; &quot;</span>*<span class="number">2</span>,end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line">start_pos = (<span class="number">15</span>, <span class="number">0</span>)</span><br><span class="line">end_post = (<span class="number">7</span>, <span class="number">20</span>)</span><br><span class="line">direct_control(maze,start_pos,end_post)</span><br><span class="line">view_path(maze,maze_path)</span><br><span class="line">flag = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#转换移动坐标为路径方向</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(maze_path)-<span class="number">1</span>):</span><br><span class="line">    delta = (maze_path[i][<span class="number">0</span>]-maze_path[i+<span class="number">1</span>][<span class="number">0</span>],</span><br><span class="line">             maze_path[i][<span class="number">1</span>]-maze_path[i+<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line">    flag +=trans_dirs(delta)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">flag_reverse = <span class="string">&quot;&quot;</span>.join(<span class="built_in">reversed</span>(flag))</span><br><span class="line"><span class="built_in">print</span>(flag_reverse)</span><br><span class="line"><span class="built_in">print</span>(md5(<span class="built_in">bytes</span>(flag_reverse.strip(), encoding=<span class="string">&#x27;utf-8&#x27;</span>)).hexdigest())</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20240820140856374.png" alt="image-20240820140856374"></p>
+<h1 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h1><h2 id="NoTeLanDer-v2"><a href="#NoTeLanDer-v2" class="headerlink" title="NoTeLanDer_v2"></a>NoTeLanDer_v2</h2><h2 id="Film-backstage-v2"><a href="#Film-backstage-v2" class="headerlink" title="Film_backstage_v2"></a>Film_backstage_v2</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CTF/" rel="tag"># CTF</a>
+              <a href="/tags/%E8%A5%BF%E8%97%8F/" rel="tag"># 西藏</a>
+              <a href="/tags/%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0/" rel="tag"># 玄盾珠峰</a>
+              <a href="/tags/2024/" rel="tag"># 2024</a>
+              <a href="/tags/Writeup/" rel="tag"># Writeup</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E9%A2%84%E8%B5%9Bwriteup/" rel="prev" title="2024玄盾珠峰预赛writeup">
+      <i class="fa fa-chevron-left"></i> 2024玄盾珠峰预赛writeup
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Misc"><span class="nav-number">1.</span> <span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hide-flag"><span class="nav-number">1.1.</span> <span class="nav-text">hide flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E8%BE%BE%E6%8B%89%E5%AE%AB"><span class="nav-number">1.2.</span> <span class="nav-text">布达拉宫</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web"><span class="nav-number">2.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#qiandao"><span class="nav-number">2.1.</span> <span class="nav-text">qiandao</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ezjava"><span class="nav-number">2.2.</span> <span class="nav-text">ezjava</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Crypto"><span class="nav-number">3.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EasyRSA"><span class="nav-number">3.1.</span> <span class="nav-text">EasyRSA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Revere"><span class="nav-number">4.</span> <span class="nav-text">Revere</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#confidential"><span class="nav-number">4.1.</span> <span class="nav-text">confidential</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ezmaze"><span class="nav-number">4.2.</span> <span class="nav-text">ezmaze</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PWN"><span class="nav-number">5.</span> <span class="nav-text">PWN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NoTeLanDer-v2"><span class="nav-number">5.1.</span> <span class="nav-text">NoTeLanDer_v2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Film-backstage-v2"><span class="nav-number">5.2.</span> <span class="nav-text">Film_backstage_v2</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Paulownia</p>
+  <div class="site-description" itemprop="description">记录知识,分享内容</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BMLovePanda" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BMLovePanda" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhrui06@gmail.com" title="E-Mail → mailto:zhrui06@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Paulownia</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ht1Spwh002m1TkaTLxmGorwj-gzGzoHsz',
+      appKey     : 'aqaYLOhc4JZ0YM4fCg3xoRtO',
+      placeholder: "写点什么吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

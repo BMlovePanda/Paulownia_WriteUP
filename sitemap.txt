@@ -1,3 +1,4 @@
+https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E5%86%B3%E8%B5%9BWriteup/
 https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E9%A2%84%E8%B5%9Bwriteup/
 https://blog.paulownia.top/2022/02/22/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2/
 https://blog.paulownia.top/about/index.html
@@ -19,6 +20,8 @@ https://blog.paulownia.top/tags/%E6%B8%97%E9%80%8F/
 https://blog.paulownia.top/tags/%E5%AE%9E%E9%AA%8C/
 https://blog.paulownia.top/tags/%E8%A5%BF%E8%97%8F/
 https://blog.paulownia.top/tags/%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0/
+https://blog.paulownia.top/tags/2024/
+https://blog.paulownia.top/tags/Writeup/
 https://blog.paulownia.top/categories/CTF-s-WriteUp/
 https://blog.paulownia.top/categories/HTB-WriteUp/
 https://blog.paulownia.top/categories/%E6%9D%82%E8%B0%88/
